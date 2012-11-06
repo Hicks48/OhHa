@@ -3,12 +3,13 @@
  * and open the template in the editor.
  */
 package MyMath;
+import java.text.DecimalFormat;
 
 /**
  *
  * @author henrikorpela
  */
-public class Complex_Number implements Comparable<Complex_Number>{
+public class Complex_Number{
     double realPart;
     double imaginaryPart;
     int powerOfIi;
@@ -59,11 +60,31 @@ public class Complex_Number implements Comparable<Complex_Number>{
     {
         this.imaginaryPart = imaginaryPart;
     }
-    
-    @Override
-    public int compareTo(Complex_Number compared)
+    public double round(double round,int accurancy)
     {
-        return this.powerOfIi - compared.getPower();
+        String rounding = "#.";
+        for(int i = 0;i < accurancy;i ++)
+        {
+            rounding = rounding + "#";
+        }
+        DecimalFormat df = new DecimalFormat(rounding);
+        return Double.parseDouble(df.format(round));
+    }
+    @Override
+    public boolean equals(Object o)
+    {
+        if(o.getClass() != this.getClass())
+        {
+            return false;
+        }
+        Complex_Number compare = (Complex_Number)o;
+        if(this.round(compare.getRealPart(),10) == this.round(
+            this.realPart,10) && this.round(compare.getImaginaryPart(),8) == this.round(this.imaginaryPart,8)
+                && compare.getPower() == this.powerOfIi)
+        {
+            return true;
+        }
+        return false;
     }
     @Override
     public String toString()

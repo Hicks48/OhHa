@@ -35,34 +35,50 @@ public class Complex_Calculations {
     
     public static Complex_Number pow(Complex_Number num,int n)
     {
+        if(n == 1)
+        {
+            return new Complex_Number(num.getRealPart(),num.getImaginaryPart(),num.getPower());
+        }
         simplify_i(num);
         Complex_Number pow = new Complex_Number(num.getRealPart(),num.getImaginaryPart());
-        for(int i = 0;i < n;i ++)
+        for(int i = 1;i < n;i ++)
         {
             pow = multiplication(pow,num);
+            simplify_i(pow);
         }
         return pow;
     }
     
-    private static void simplify_i(Complex_Number num)
+    public static Complex_Number round(Complex_Number num,int accurancy)
+    {
+        num.setRealPart(num.round(num.getRealPart(),accurancy));
+        num.setImaginaryPart(num.round(num.getImaginaryPart(),accurancy));
+        return num;
+    }
+    public static Complex_Number simplify_i(Complex_Number num)
     {
         if(num.getPower() != 1)
         {
             int power = num.getPower();
-            power = power - ((power / 4) * 4);
-            switch(power)
+            power = power  - (power / 4) * 4;// poisttaa epäoleelliset
+            int effective = power % 4;
+            switch(effective)
             {
-                case 1: num.setPower(1);
-                    return;
-                case 2: num.setRealPart(num.getRealPart() - num.getImaginaryPart());
+                case 0: num.setRealPart(num.getRealPart() +  num.getImaginaryPart());
                         num.setImaginaryPart(0);
                         num.setPower(0);
-                    return;
-                case 3: num.setPower(1);
-                        num.setRealPart((-1) * num.getRealPart());
-                    return;
+                        return num;
+                case 1: num.setPower(1);
+                        return num;
+                case 2: num.setRealPart(num.getRealPart() - num.getImaginaryPart());
+                        num.setImaginaryPart(0.0);
+                        num.setPower(0);
+                        return num;
+                case 3: num.setImaginaryPart(num.getImaginaryPart() * (-1));
+                        num.setPower(1);
             }
         }
+        return num;
     }
     
     public static Complex_Number subtraction(Complex_Number num1, Complex_Number num2)
@@ -74,7 +90,7 @@ public class Complex_Calculations {
     public static double abs(Complex_Number num)
     {
         simplify_i(num);
-        return Math.sqrt(Math.pow(num.realPart,2) + Math.pow(num.imaginaryPart,2));
+        return Math.sqrt(Math.abs(Math.pow(num.realPart,2)) + Math.abs(Math.pow(num.imaginaryPart,2)));
     }
 }
 

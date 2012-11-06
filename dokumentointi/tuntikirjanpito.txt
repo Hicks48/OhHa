@@ -1,2 +1,10 @@
-9:00 Ð 12:00		29.10.2012		MyMath ja MySet luokkien parantelua
-14:15 Ð 15:45	29.10.2012		Aiheen kuvauksen kirjoitusta.
+10:00 - 12:00		22.10.2012		MyMath luokan suunnittelua.
+13:00 - 15:00		25.10.2012		MyMath luokan toteutusta.
+18:00 - 22:00		25.10.2012		MyMath luokan toteutusta.
+12:00 - 16:00		28.10.2012		MySet luokan toteutusta.
+9:00 Ð 12:00		29.10.2012		MyMath ja MySet luokkien parantelua.
+14:15 Ð 15:45		29.10.2012		Aiheen kuvauksen kirjoitusta.
+9:15 - 12:00		30.10.2012		Fraktaali ikkunan piirto metodien 							toteuttamista.
+14:00 - 17:45		30.10.2012		Fraktaali ikkunan matematiikan 								touteutusta.
+14:00 - 15:00		31.10.2012		MyMath luokan testien kirjoitusta.
+10:00 - 11:00		1.11.2012		MyMath luokan testien kirjoitusta ja 							MyMath luokan korjaamista.
