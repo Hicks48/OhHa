@@ -10,9 +10,9 @@ import java.text.DecimalFormat;
  * @author henrikorpela
  */
 public class Complex_Number{
-    double realPart;
-    double imaginaryPart;
-    int powerOfIi;
+    private double realPart;
+    private double imaginaryPart;
+    private int powerOfIi;
     
     public Complex_Number(double realPart,double imaginaryPart)
     {
@@ -78,11 +78,15 @@ public class Complex_Number{
             return false;
         }
         Complex_Number compare = (Complex_Number)o;
-        if(this.round(compare.getRealPart(),10) == this.round(
-            this.realPart,10) && this.round(compare.getImaginaryPart(),8) == this.round(this.imaginaryPart,8)
-                && compare.getPower() == this.powerOfIi)
+        if(this.powerOfIi == compare.getPower())
         {
-            return true;
+            if(Math.abs(this.round(this.realPart,10) - this.round(compare.getRealPart(),10)) < 0.000000001)
+            {
+                if(Math.abs(this.round(this.imaginaryPart,10) - this.round(compare.getImaginaryPart(),10)) < 0.000000001)
+                {
+                    return true;
+                }
+            }
         }
         return false;
     }
@@ -95,7 +99,7 @@ public class Complex_Number{
         }
         else if(this.powerOfIi != 1)
         {
-            return (this.realPart + " + " + this.imaginaryPart + "i ^ " + this.powerOfIi);
+            return (this.realPart + " + " + this.imaginaryPart + "i^" + this.powerOfIi);
         }
         else
         {

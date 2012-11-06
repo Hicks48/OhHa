@@ -11,12 +11,12 @@ package FractalViewWindow;
 import MyMath.Complex_Number;
 public class Window_Calculations {
     
-    private static double pixelGap(double zoom)
+    public static double pixelGap(double zoom)
     {
         return 2.5E-3 * (1.0/zoom);
     }
     
-    private static double[] windowCordinateSystemLimits(Complex_Number center,double pixelGap,int width,int heigth)
+    public static double[] windowCordinateSystemLimits(Complex_Number center,double pixelGap,int width,int heigth)
     {
         double limits[] = new double[2];
         limits[0] = center.getRealPart() - (width/2) * pixelGap; // real-axel min

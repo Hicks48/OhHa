@@ -90,7 +90,7 @@ public class Complex_Calculations {
     public static double abs(Complex_Number num)
     {
         simplify_i(num);
-        return Math.sqrt(Math.abs(Math.pow(num.realPart,2)) + Math.abs(Math.pow(num.imaginaryPart,2)));
+        return Math.sqrt(Math.abs(Math.pow(num.getRealPart(),2)) + Math.abs(Math.pow(num.getImaginaryPart(),2)));
     }
 }
 
