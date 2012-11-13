@@ -24,14 +24,14 @@ public class Window implements Runnable{
     private JFrame window;
     
     public Window(Complex_Number center,double zoom,Set set,int width,int heigth,
-            int xPositionIntial,int yPositionInitial,Color setMainColor,Color backround,
-            Color highLigthColor)
+            int xPositionIntial,int yPositionInitial,RGB setMainColor,RGB backround,
+            RGB secondaryMain,int coloringAlgorithm,boolean RGBValueCheck)
     {
         this.heigth = heigth;
         this.name = set.getName();
         this.width = width;
         this.drawSet = new DrawSet(setMainColor,backround,set,this.width,this.heigth,center,zoom,
-                highLigthColor);
+                secondaryMain,coloringAlgorithm,RGBValueCheck);
     }
     
     public JFrame getWindow()

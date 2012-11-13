@@ -11,21 +11,22 @@ package MySet;
 import MyMath.*;
 public class Julia extends Set{
     private Complex_Number K;
-    private int accurancy;
     
     public Julia(Complex_Number K,String name,int accurancy)
     {
-        super.name = name;
+        super(name,accurancy);
         this.K = K;
-        this.accurancy = accurancy;
     }
+    
     @Override
     public int belongsToSet(Complex_Number z)
     {
+        super.escaped = null;
+        super.inside = null;
         int roundsTillExit = 0;
-        for(;roundsTillExit <= this.accurancy;roundsTillExit ++)
+        for(;roundsTillExit <= super.accurancy;roundsTillExit ++)
         {
-            if(!isInSet(z))
+            if(!super.isInSet(z))
             {
                 return roundsTillExit;
             }
@@ -33,12 +34,9 @@ public class Julia extends Set{
         }
         return 0;
     }
-    private boolean isInSet(Complex_Number zi)
-    {
-        if(Complex_Calculations.abs(zi) <= 2.0)
-        {
-            return true;
-        }
-        return false;
+
+    @Override
+    public String save() {
+        return "z^2 " + this.K.toString();
     }
 }

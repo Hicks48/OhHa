@@ -11,7 +11,7 @@ package FractalViewWindow;
 public class RGB {
     private final int red;
     private final int green;
-    private int blue;
+    private final int blue;
     
     public RGB(int red,int green,int blue)
     {
@@ -33,5 +33,10 @@ public class RGB {
     public int getBlue()
     {
         return this.blue;
+    }
+    @Override
+    public String toString()
+    {
+        return "R: " + this.red + " G: " + this.green + " B: " + this.blue;
     }
 }

@@ -39,6 +39,10 @@ public class Complex_Calculations {
         {
             return new Complex_Number(num.getRealPart(),num.getImaginaryPart(),num.getPower());
         }
+        else if(n == 0)
+        {
+            return new Complex_Number(1,0);
+        }
         simplify_i(num);
         Complex_Number pow = new Complex_Number(num.getRealPart(),num.getImaginaryPart());
         for(int i = 1;i < n;i ++)
@@ -91,6 +95,60 @@ public class Complex_Calculations {
     {
         simplify_i(num);
         return Math.sqrt(Math.abs(Math.pow(num.getRealPart(),2)) + Math.abs(Math.pow(num.getImaginaryPart(),2)));
+    }
+    
+    public static Complex_Number division(Complex_Number num1,Complex_Number num2)
+    {
+        num1 = simplify_i(num1);
+        num2 = simplify_i(num2);
+        Complex_Number conjugate = conjugation(num2);
+        Complex_Number top = multiplication(conjugate,num1);
+        Complex_Number bottom = multiplication(conjugate,num2);
+        return divide(top,bottom);
+    }
+    
+    private static Complex_Number conjugation(Complex_Number num)
+    {
+        double imaginaryPart = num.getImaginaryPart() * (-1);
+        return new Complex_Number(num.getRealPart(),imaginaryPart);
+    }
+    
+    private static Complex_Number divide(Complex_Number top,Complex_Number bottom)
+    {
+        double realPart;
+        double imaginaryPart;
+        int power;
+        
+        if(top.getRealPart() == 0)
+        {
+            realPart = bottom.getRealPart();
+        }
+        else if(bottom.getRealPart() == 0)
+        {
+            realPart = top.getRealPart();
+        }
+        else
+        {
+            realPart = top.getRealPart() / bottom.getRealPart();
+        }
+        
+        if(top.getImaginaryPart() == 0)
+        {
+            imaginaryPart = bottom.getImaginaryPart();
+            power = bottom.getPower();
+        }
+        else
+        {
+            imaginaryPart = top.getImaginaryPart() / bottom.getRealPart();
+            power = top.getPower() - bottom.getPower();
+        }
+        
+        if(power < 1)
+        {
+            power = 1;
+        }
+        Complex_Number result = new Complex_Number(realPart,imaginaryPart,power);
+        return simplify_i(result);
     }
 }
 
