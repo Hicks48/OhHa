@@ -89,6 +89,7 @@ public class Complex_Calculations_Test {
         assertEquals(new Complex_Number(0.0228272531204218,-0.0002897018196624),Complex_Calculations.pow(test3,3));
         assertEquals(new Complex_Number(0.681472,0),Complex_Calculations.pow(test6,3));
         assertEquals(new Complex_Number(-218.486069,-135.8622),Complex_Calculations.pow(test5,3));
+        assertEquals(new Complex_Number(0,0.08),Complex_Calculations.pow(new Complex_Number(0.2,0.2),2));
     }
     
     @Test
@@ -109,5 +110,7 @@ public class Complex_Calculations_Test {
         assertEquals(new Complex_Number(-0.0233717669055781,-1.31193518229978),Complex_Calculations.division(test1,test2));
         assertEquals(new Complex_Number(0.145129518384365,-0.0831684114492973),Complex_Calculations.division(test3,test4));
         assertEquals(new Complex_Number(2.39772727272727,+6.81818181818182,1),Complex_Calculations.division(test5,test6));
+        assertEquals(new Complex_Number(1,1.11022302462516E-16),Complex_Calculations.division(new Complex_Number(0.15,0.15),new Complex_Number(0.15,0.15)));
+        assertEquals(new Complex_Number(0.15,0.15),Complex_Calculations.division(new Complex_Number(0.15,0.15),new Complex_Number(1,0)));
     }
 }

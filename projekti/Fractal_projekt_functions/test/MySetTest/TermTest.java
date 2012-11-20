@@ -50,6 +50,7 @@ public class TermTest {
     {
         assertEquals(new Complex_Number(0,0),this.test1.countValue(new Complex_Number(0,0)));
         assertEquals(new Complex_Number(6.24,-12.8),this.test1.countValue(new Complex_Number(-3.2,+2)));
+        assertEquals(new Complex_Number(0.0,0.045),this.test1.countValue(new Complex_Number(0.15,0.15)));
         
         assertEquals(new Complex_Number(-4.1,+0.3),this.test2.countValue(new Complex_Number(0.85,+0.35)));
         assertEquals(new Complex_Number(6.0752,-2.4196),this.test2.countValue(new Complex_Number(-1.457,-0.1236)));

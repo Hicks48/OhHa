@@ -55,6 +55,7 @@ public class PolynomTest {
     {
         assertEquals(new Complex_Number(1.8334,+6.175686),this.test1.countValue(new Complex_Number(-0.0145,+1.98)));
         assertEquals(new Complex_Number(2.14312,+0.000132),this.test1.countValue(new Complex_Number(0.001,0)));
+        assertEquals(new Complex_Number(2.5882,+0.4878),this.test1.countValue(new Complex_Number(0.15,0.15)));
         
         assertEquals(new Complex_Number(-3.1665,+5.1192),this.test2.countValue(new Complex_Number(0.15,+2)));
         assertEquals(new Complex_Number(0.17649111,+0.238578),this.test2.countValue(new Complex_Number(0,0.1617)));

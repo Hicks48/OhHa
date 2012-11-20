@@ -1,12 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package FractalViewWindow;
 
 /**
- *
- * @author henrikorpela
+ * Creates screen which set is drawn.
+ * @author Henri Korpela
  */
 import java.awt.Container;
 import java.awt.Dimension;
@@ -22,9 +19,21 @@ public class Window implements Runnable{
     private String name;
     private DrawSet drawSet;
     private JFrame window;
-    
+    /**
+     * 
+     * @param center
+     * @param zoom
+     * @param set
+     * @param width
+     * @param heigth
+     * @param setMainColor
+     * @param backround
+     * @param secondaryMain
+     * @param coloringAlgorithm
+     * @param RGBValueCheck 
+     */
     public Window(Complex_Number center,double zoom,Set set,int width,int heigth,
-            int xPositionIntial,int yPositionInitial,RGB setMainColor,RGB backround,
+            RGB setMainColor,RGB backround,
             RGB secondaryMain,int coloringAlgorithm,boolean RGBValueCheck)
     {
         this.heigth = heigth;
@@ -33,12 +42,17 @@ public class Window implements Runnable{
         this.drawSet = new DrawSet(setMainColor,backround,set,this.width,this.heigth,center,zoom,
                 secondaryMain,coloringAlgorithm,RGBValueCheck);
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public JFrame getWindow()
     {
         return this.window;
     }
-    
+    /**
+     * 
+     */
     @Override
     public void run()
     {

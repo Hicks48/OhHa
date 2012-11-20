@@ -1,12 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package FractalViewWindow;
 
 /**
- *
- * @author henrikorpela
+ * Draws Set.
+ * @author Henri Korpela
  */
 import MyMath.Complex_Number;
 import MySet.*;
@@ -21,7 +18,22 @@ public class DrawSet extends JPanel{
     private Complex_Number center;
     private double zoom;
     private Coloring coloring;
-    
+    /**
+     * 
+     * @param setMainColor Color which is used to color pixels whose
+     * complex-number belongs to set.
+     * @param backround Color which is used to color pixels whose
+     * complex-number doesn't belongs to set.
+     * @param set Set that is drawn.
+     * @param width Width of the screen.
+     * @param heigth Height of the screen.
+     * @param center Complex-number that at the center of the screen.
+     * @param zoom Value that tells how much picture is zoomed.
+     * @param secondaryMain Color that sets color approaches
+     * amount defined by used coloring algorithm.
+     * @param coloringAlgorithm Tells which coloring algorithm is used.
+     * @param RGBValueCheck Tells is RGB value checking enabled or not.
+     */
     public DrawSet(RGB setMainColor,RGB backround,Set set,int width,int heigth,
             Complex_Number center,double zoom,RGB secondaryMain,int coloringAlgorithm,
             boolean RGBValueCheck)
@@ -37,12 +49,25 @@ public class DrawSet extends JPanel{
         this.coloring = new Coloring(secondaryMain,setMainColor,coloringAlgorithm,
                 set.getAccurancy(),backroundColor,RGBValueCheck);
     }
-    
+    /**
+     * Colors pixel in coordinates x and y using given graphics object.
+     * @param x x-coordinate of the pixel.
+     * @param y y-coordinate of the pixel.
+     * @param graphics Graphics object that draws on the screen.
+     */
     private void putPixel(int x,int y,Graphics graphics)
     {
         graphics.fillRect(x, y,1,1);
     }
-    
+    /**
+     * Draws set.
+     * Goes through each pixel on the screen and checks whether
+     * complex-number corresponding it's coordinates belongs
+     * or doesn't belong to the set. After defining this colors
+     * pixels based on coloring algorithm, membership
+     * and colors.
+     * @param graphics Graphics object that draws on the screen.
+     */
     @Override
     protected void paintComponent(Graphics graphics)
     {

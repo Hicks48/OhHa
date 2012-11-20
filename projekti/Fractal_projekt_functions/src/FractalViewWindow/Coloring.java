@@ -1,12 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package FractalViewWindow;
 
 /**
- *
- * @author henrikorpela
+ * Defines color of pixel by using selected coloring algorithm.
+ * @author Henri Korpela
  */
 import java.awt.Graphics;
 import java.lang.Math;
@@ -22,7 +19,20 @@ public class Coloring {
     private int accurancy;
     private boolean RGBValueCheck;
     private Color backroundColor;
-    
+    /**
+     * 
+     * @param secondaryMain Color that sets color approaches
+     * amount defined by used coloring algorithm.
+     * @param setMainColor Color which is used to color pixels whose
+     * complex-number belongs to set.
+     * @param algorithm Tells which coloring algorithm is used.
+     * @param accurancy Tells how many iterations complex-planes
+     * points orbit has to stay inside circle of radius two so that
+     * it's said that it belongs to the set.
+     * @param backroundColor Color which is used to color pixels whose
+     * complex-number doesn't belongs to set.
+     * @param RGBValueCheck Tells is RGB value checking enabled or not.
+     */
     public Coloring(RGB secondaryMain,RGB setMainColor, int algorithm,
             int accurancy,Color backroundColor,boolean RGBValueCheck)
     {
@@ -36,7 +46,10 @@ public class Coloring {
         this.backroundColor = backroundColor;
         this.RGBValueCheck = RGBValueCheck;
     }
-    
+    /**
+     * Interprets current coloring algorithm and checks that initial conditions are propitious.
+     * @param graphics Graphics object that draws on the screen.
+     */
     public void color(Graphics graphics)
     {
         if(this.escape <= 1 && this.algorithm != 1)
@@ -59,14 +72,28 @@ public class Coloring {
                     return;
         }
     }
-    
+    /**
+     * Updates colorings values to given values.
+     * @param escape
+     * @param escaped
+     * @param inside 
+     */
     public void updateValues(int escape,Complex_Number escaped,Complex_Number inside)
     {
         this.escape = escape;
         this.inside = inside;
         this.escaped = escaped;
     }
-    
+    /**
+     * Sets the graphics color to color that corresponds given RGB values.
+     * If RGB value check is enabled it checks RGB values before trying to
+     * set color. If Setting given RGB values fails it sets color to 
+     * background color.
+     * @param red
+     * @param green
+     * @param blue
+     * @param graphics 
+     */
     private void trySetColor(int red,int green,int blue,Graphics graphics)
     {
         try
@@ -90,7 +117,13 @@ public class Coloring {
             return;
         }
     }
-    
+    /**
+     * Checks that RGB:s red, green and blue values are all within RGB limits.
+     * @param red Pixels red RGB value.
+     * @param green Pixels green RGB value.
+     * @param blue Pixels blue RGB value.
+     * @return RGB thats values that are inside RGB value limits.
+     */
     private RGB RGBValueCheckFunc(int red,int green,int blue)
     {
         if(this.setMainColor.getRed() > red)
@@ -124,12 +157,21 @@ public class Coloring {
         green = this.insideRGB(green);
         return new RGB(red,green,blue);
     }
-    
+    /**
+     * Checks that color value is inside RGB limits.
+     * If color value isn't inside these values it sets
+     * it inside limits so that if it exceeds the limit
+     * color value is set 255 and if value is smaller than
+     * zero it's set to zero.
+     * @param color
+     * @return Zero if color value is under zero. 255 if color
+     * value is over 255 and color if color value is between 255 and zero.
+     */
     private int insideRGB(int color)
     {
-        if(color > 250)
+        if(color > 255)
         {
-            return 250;
+            return 255;
         }
         else if(color <= 0)
         {
@@ -140,7 +182,11 @@ public class Coloring {
             return color;
         }
     }
-    
+    /**
+     * Counts RGB values based on cos of the angle between escaped complex-number
+     * and inside complex-number.
+     * @param graphics Graphics object that draws on the screen.
+     */
     private void angleCosin(Graphics graphics)
     {
         double cofficient = (Math.abs(this.escaped.getImaginaryPart() - this.inside.getImaginaryPart())
@@ -153,7 +199,11 @@ public class Coloring {
                 * cofficient);
         this.trySetColor(red,green,blue,graphics);
     }
-    
+    /**
+     * Counts RGB values based on sin of the angle between escaped complex-number
+     * and inside complex-number.
+     * @param graphics Graphics object that draws on the screen.
+     */
     private void angleSin(Graphics graphics)
     {
         double coefficient = ((Math.sqrt(Math.pow(Math.abs(this.escaped.getImaginaryPart() - this.inside.getImaginaryPart()),2.0))
@@ -164,7 +214,12 @@ public class Coloring {
         int blue = (int)(Math.abs(this.secondaryMain.getBlue() - this.setMainColor.getBlue()) * coefficient);
         this.trySetColor(red,green,blue,graphics);
     }
-    
+    /**
+     * Counts RGB values based on how many iterations it took for orbit to escape the set.
+     * This is done by calculating escape count divided by sets accuracy. This value is then
+     * multiplied by RGB values difference.
+     * @param graphics Graphics object that draws on the screen.
+     */
     private void escapeCount(Graphics graphics)
     {
         double cofficient = ((double)this.escape / (double)this.accurancy);

@@ -1,26 +1,32 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MySet;
 
 import MyMath.Complex_Number;
 import java.util.ArrayList;
 
 /**
- *
- * @author henrikorpela
+ * Class presents functionality for a polynomial.
+ * @author Henri Korpela
  */
 public class Polynom {
     private ArrayList<Term> polynom;
-    
+    /**
+     * 
+     * @param polynom String containing information
+     * that is used to construct polynomial.
+     */
     public Polynom(String polynom)
     {
         this.polynom = new ArrayList<Term>();
         String[] terms = polynom.split(";");
         this.construct(terms);
     }
-    
+    /**
+     * Constructs polynomial from terms.
+     * terms includes all the terms of the polynomial.
+     * @param terms String containing Strings of terms separated
+     * from each other.
+     */
     private void construct(String[] terms)
     {
         for(int i = 0;i < terms.length;i ++)
@@ -28,7 +34,14 @@ public class Polynom {
             this.polynom.add(new Term(terms[i]));
         }
     }
-    
+    /**
+     * Counts value of the polynomial for complex-number z.
+     * This is done by counting values of each term of the polynomial
+     * and adding these values together.
+     * @param z Complex-number presenting point on the complex-plane
+     * (z is used to count value of the polynomial).
+     * @return Value of polynomial.
+     */
     public Complex_Number countValue(Complex_Number z)
     {
         Complex_Number value = this.polynom.get(0).countValue(z);
@@ -38,7 +51,10 @@ public class Polynom {
         }
         return value;
     }
-    
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String toString()
     {
