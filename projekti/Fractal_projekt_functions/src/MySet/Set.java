@@ -39,12 +39,6 @@ public abstract class Set {
      */
     public abstract int belongsToSet(Complex_Number z);
     /**
-     * String save is used to save the set in a file.
-     * @return String save.
-     */
-    public abstract String save();
-    
-    /**
      * Escape is the first complex-number in the orbit of complex-number z
      * that escaped from set and inside is the last complex-number that was
      * still inside the set.

@@ -62,6 +62,16 @@ public class RGB {
         }
     }
     /**
+     * Return a String that is used to save color.
+     * Color values are separated from each other by
+     * & marker.
+     * @return String that is saved.
+     */
+    public String save()
+    {
+        return this.red + "&" + this.green + "&" + this.blue;
+    }
+    /**
      * @return RGB:s String presentation in a form R: red value
      * G: green value B: blue value.
      */

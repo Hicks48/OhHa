@@ -44,12 +44,4 @@ public class Julia extends Set{
         }
         return 0;
     }
-    /**
-     * 
-     * @return 
-     */
-    @Override
-    public String save() {
-        return "z^2 " + this.K.toString();
-    }
 }

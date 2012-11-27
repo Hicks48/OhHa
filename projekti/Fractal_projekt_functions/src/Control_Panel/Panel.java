@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package Control_Panel;
 
-/**
- *
- * @author henrikorpela
- */
+package Control_Panel;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
@@ -19,14 +11,16 @@ import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
+import javax.swing.JTextArea;
+/**
+ * Draws Panel on screen.
+ * @author Henri Korpela
+ */
 public class Panel implements Runnable{
     private JFrame panel;
-    
-    public Panel()
-    {
-        
-    }
-    
+    /**
+     * 
+     */
     @Override
     public void run()
     {
@@ -37,7 +31,10 @@ public class Panel implements Runnable{
         this.panel.pack();
         this.panel.setVisible(true);
     }
-    
+    /**
+     * Fills frames container with different components.
+     * @param container 
+     */
     private void createComponents(Container container)
     {
         GridLayout layout = new GridLayout(5,10);
@@ -51,9 +48,11 @@ public class Panel implements Runnable{
         coloringAlgorithms.add(sin);
         coloringAlgorithms.add(cos);
         
+        JButton list = new JButton("List");
         JButton draw = new JButton("Draw");
         JButton save = new JButton("Save");
         JButton load = new JButton("Load");
+        JButton delete = new JButton("Delete");
         JCheckBox RGBValueCheck = new JCheckBox("Value check");
         
         JTextField width = new JTextField();
@@ -78,6 +77,29 @@ public class Panel implements Runnable{
         JTextField seB = new JTextField();
         JTextField seG = new JTextField();
         
+        JTextArea errorMessage = new JTextArea();
+        
+        List listAction = new List(errorMessage);
+        Draw drawAction = new Draw(RGBValueCheck,escapes,sin,cos,width,heigth,zoom,
+            center,function,KValue,name,
+            accurancy,comR,comG,comB,bgR,
+            bgG,bgB,seR,seB,seG,errorMessage);
+        Save saveAction = new Save(RGBValueCheck,escapes,sin,cos,width,heigth,zoom,
+            center,function,KValue,name,
+            accurancy,comR,comG,comB,bgR,
+            bgG,bgB,seR,seB,seG,errorMessage);
+        Load loadAction = new Load(name,RGBValueCheck,escapes,sin,cos,width,heigth,zoom,
+            center,function,KValue,
+            accurancy,comR,comG,comB,bgR,
+            bgG,bgB,seR,seB,seG,errorMessage);
+        Delete deleteAction = new Delete(errorMessage,name);
+        
+        list.addActionListener(listAction);
+        draw.addActionListener(drawAction);
+        save.addActionListener(saveAction);
+        load.addActionListener(loadAction);
+        delete.addActionListener(deleteAction);
+        
         container.add(new JLabel(" Set color:"));
         container.add(new JLabel(""));
         container.add(new JLabel("Secondary color:"));
@@ -89,7 +111,7 @@ public class Panel implements Runnable{
         container.add(new JLabel(""));
         container.add(new JLabel(""));
         container.add(new JLabel(""));
-        container.add(new JLabel(""));
+        container.add(list);
         
         container.add(new JLabel(" Red: "));
         container.add(comR);
@@ -130,8 +152,8 @@ public class Panel implements Runnable{
         container.add(function);
         container.add(draw);
         
-        container.add(new JLabel(""));
-        container.add(new JLabel(""));
+        container.add(new JLabel("Errors"));
+        container.add(errorMessage);
         container.add(new JLabel(""));
         container.add(new JLabel(""));
         container.add(new JLabel(""));
@@ -141,5 +163,6 @@ public class Panel implements Runnable{
         container.add(center);
         container.add(new JLabel("accurancy: "));
         container.add(accurancy);
+        container.add(delete);
     }
 }

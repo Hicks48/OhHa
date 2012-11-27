@@ -1,15 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Control_Panel;
 import MyMath.Complex_Number;
+import MyMath.Construction;
 import MySet.Set;
 import MySet.GeneralJulia;
 import MySet.Julia;
 /**
- *
- * @author henrikorpela
+ * 
+ * @author Henri Korpela
  */
 public class InsertedSetProperties {
     private int accurancy;
@@ -32,7 +30,15 @@ public class InsertedSetProperties {
     
     private Complex_Number checkK(String K)
     {
-        return null;
+        try
+        {
+            Complex_Number constantK = MyMath.Construction.construct(K);
+            return constantK;
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
     }
     
     public Set createSet()
@@ -95,5 +101,10 @@ public class InsertedSetProperties {
         }
         this.K = toBeCheckedK;
         return true;
+    }
+    
+    public String save()
+    {
+        return this.name + ":" + this.accurancy + ":" + this.function + ":" + this.K.save();
     }
 }

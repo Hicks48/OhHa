@@ -59,7 +59,6 @@ public class Window implements Runnable{
         this.window = new JFrame(this.name);
         this.window.setPreferredSize(new Dimension(this.width,this.heigth));
         
-        this.window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.window.getContentPane().add(this.drawSet);
         this.window.pack();
         this.window.setVisible(true);

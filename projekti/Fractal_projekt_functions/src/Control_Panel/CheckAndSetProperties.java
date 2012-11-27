@@ -9,6 +9,7 @@ package Control_Panel;
  * @author henrikorpela
  */
 public class CheckAndSetProperties {
+    private String errorMessage;
     /**
      * 
      * @param comR
@@ -38,24 +39,17 @@ public class CheckAndSetProperties {
             String name,String definitionFunction,String K,
             int accurancy,int coloringAlgorithm,InsertedSetProperties insSetProp)
     {
-        String setPropCheck = this.checkSetProps(name,definitionFunction,K,accurancy,insSetProp);
-        String windowPropCheck = this.checkWindowProps(zoom, heigth, width,
+        this.errorMessage = null;
+        this.checkSetProps(name,definitionFunction,K,accurancy,insSetProp);
+        this.checkWindowProps(zoom, heigth, width,
                 comR, comG, comB, seR, seG, seB, bgR, bgG, bgB, coloringAlgorithm,center,insWinProp);
-        if(setPropCheck == null && windowPropCheck == null)
+        if(this.errorMessage.equals(" function error\n") || this.errorMessage.equals("K value error\n"))
         {
             return null;
         }
-        else if(setPropCheck == null)
-        {
-            return windowPropCheck;
-        }
-        else if(windowPropCheck == null)
-        {
-            return setPropCheck;
-        }
         else
         {
-            return windowPropCheck + setPropCheck;
+            return this.errorMessage;
         }
     }
     /**
@@ -63,13 +57,13 @@ public class CheckAndSetProperties {
      * @param errorMessage
      * @param newError 
      */
-    private void erorroMessage(String errorMessage,String newError)
+    private void  erorroMessage(String newError)
     {
-        if(errorMessage == null)
+        if(this.errorMessage == null)
         {
-            errorMessage = "";
+            this.errorMessage = "";
         }
-        errorMessage = errorMessage + " " + newError + " error";
+        this.errorMessage = this.errorMessage + " " + newError + " error\n";
     }
     /**
      * 
@@ -78,29 +72,26 @@ public class CheckAndSetProperties {
      * @param K
      * @param accurancy
      * @param insSetProp
-     * @return 
      */
-    private String checkSetProps(String name,String definitionFunction,
+    private void checkSetProps(String name,String definitionFunction,
             String K,int accurancy,InsertedSetProperties insSetProp)
     {
-        String errorMessage = null;
         if(!insSetProp.setName(name))
         {
-            this.erorroMessage(errorMessage,"name");
+            this.erorroMessage("name");
         }
         if(!insSetProp.setFunction(definitionFunction))
         {
-            this.erorroMessage(errorMessage,"function");
+            this.erorroMessage("function");
         }
         if(!insSetProp.setAccurancy(accurancy))
         {
-            this.erorroMessage(errorMessage,"accurancy");
+            this.erorroMessage("accurancy");
         }
         if(!insSetProp.setK(K))
         {
-            this.erorroMessage(errorMessage,"K value");
+            this.erorroMessage("K value");
         }
-        return errorMessage;
     }
     /**
      * 
@@ -119,41 +110,38 @@ public class CheckAndSetProperties {
      * @param coloringAlgorithm
      * @param center
      * @param insWinProp
-     * @return 
      */
-    private String checkWindowProps(double zoom,int heigth,int width,int comR,int comG,int comB,
+    private void checkWindowProps(double zoom,int heigth,int width,int comR,int comG,int comB,
             int seR,int seG,int seB,int bgR,int bgG,int bgB,int coloringAlgorithm,String center,InsertedWindowProperties insWinProp)
     {
-        String errorMessage = null;
         if(!insWinProp.setMainColor(comR,comG,comB))
         {
-            this.erorroMessage(errorMessage,"set color");
+            this.erorroMessage("set color");
         }
         if(!insWinProp.secondaryColor(seR,seG,seB))
         {
-            this.erorroMessage(errorMessage,"secondary color");
+            this.erorroMessage("secondary color");
         }
         if(!insWinProp.backroundColor(bgR,bgG,bgB))
         {
-            this.erorroMessage(errorMessage,"backround color");
+            this.erorroMessage("backround color");
         }
         if(!insWinProp.setWidth(width))
         {
-            this.erorroMessage(errorMessage,"width");
+            this.erorroMessage("width");
         }
         if(!insWinProp.setHeigth(heigth))
         {
-            this.erorroMessage(errorMessage,"heigth");
+            this.erorroMessage("heigth");
         }
         if(!insWinProp.setZoom(zoom))
         {
-            this.erorroMessage(errorMessage,"zoom");
+            this.erorroMessage("zoom");
         }
         if(!insWinProp.setCenter(center))
         {
-            this.erorroMessage(errorMessage,"center");
+            this.erorroMessage("center");
         }
         insWinProp.setColoringAlgorithm(coloringAlgorithm);
-        return errorMessage;
     }
 }

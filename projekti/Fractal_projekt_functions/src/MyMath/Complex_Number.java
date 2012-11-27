@@ -138,6 +138,29 @@ public class Complex_Number{
      * 
      * @return 
      */
+    public String save()
+    {
+        String realPart = "";
+        String imaginaryPart = "";
+        
+        if(this.realPart >= 0)
+        {
+            realPart = realPart + "+";
+        }
+        realPart = realPart + this.realPart;
+        
+        if(this.imaginaryPart >= 0)
+        {
+            imaginaryPart = imaginaryPart + "+";
+        }
+        imaginaryPart = imaginaryPart + this.imaginaryPart;
+        
+        return realPart + "" +imaginaryPart + "i";
+    }
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String toString()
     {

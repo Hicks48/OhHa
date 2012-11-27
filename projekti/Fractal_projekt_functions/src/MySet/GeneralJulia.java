@@ -46,12 +46,4 @@ public class GeneralJulia extends Set{
         }
         return 0;
     }
-    /**
-     * 
-     * @return 
-     */
-    @Override
-    public String save() {
-        return "";
-    }
 }
