@@ -11,7 +11,9 @@ public class Complex_Number{
     private double imaginaryPart;
     private int powerOfIi;
     /**
-     * 
+     * Creates new complex-number.
+     * Thats realPart and imaginaryPart are given realPart
+     * and imaginaryPart and power of i is one.
      * @param realPart Real-part of the complex-number.
      * @param imaginaryPart Imaginary coefficient.
      */
@@ -20,7 +22,7 @@ public class Complex_Number{
         this(realPart,imaginaryPart,1);
     }
     /**
-     * 
+     * Creates new complex-number with given values.
      * @param realPart Real-part of the complex-number.
      * @param imaginaryPart Imaginary coefficient.
      * @param power Degree of i.
@@ -32,7 +34,9 @@ public class Complex_Number{
         this.powerOfIi = power;
     }
     /**
-     * 
+     * Creates new complex-number.
+     * Thats realPart is given realPart and imaginaryPart is zero
+     * and power of i is zero.
      * @param realPart Real-part of the complex-number.
      */
     public Complex_Number(double realPart)
@@ -135,8 +139,8 @@ public class Complex_Number{
         return false;
     }
     /**
-     * 
-     * @return 
+     * Return String that is used to save complex-number.
+     * @return String save.
      */
     public String save()
     {
@@ -158,7 +162,20 @@ public class Complex_Number{
         return realPart + "" +imaginaryPart + "i";
     }
     /**
-     * 
+     * String that is used to save null complex-number.
+     * @return String containing "null".
+     */
+    public String NullSave()
+    {
+        return "null";
+    }
+    /**
+     * Return complex-number String presentation.
+     * Presentation is form depends on complex-number.
+     * If complex-numbers power is zero or imaginaryPart is zero
+     * it return realPart.
+     * If power is greater than one it returns realPart + imaginaryParti^power.
+     * Else realPart + imaginaryPart.
      * @return 
      */
     @Override

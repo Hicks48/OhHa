@@ -10,13 +10,14 @@ public class Reader {
     private int point;
     /**
      * Creates new reader and sets initial point value.
-     * @param point
+     * @param point starting point of reader.
      */
     public Reader(int point)
     {
         this.point = point;
     }
     /**
+     * Return readers point.
      * @return the point in which reader currently is.
      */
     public int getPoint()
@@ -25,7 +26,7 @@ public class Reader {
     }
     /**
      * Sets new point value in to Reader.
-     * @param point 
+     * @param point new value for readers point.
      */
     public void setPoint(int point)
     {

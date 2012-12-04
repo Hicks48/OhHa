@@ -1,38 +1,48 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Control_Panel;
 
 /**
- *
- * @author henrikorpela
+ * Checks that all given properties are
+ * valid and sets properties.
+ * @author Henri Korpela
  */
 public class CheckAndSetProperties {
     private String errorMessage;
     /**
-     * 
-     * @param comR
-     * @param comG
-     * @param comB
-     * @param seR
-     * @param seG
-     * @param seB
-     * @param bgR
-     * @param bgG
-     * @param bgB
-     * @param zoom
-     * @param heigth
-     * @param width
-     * @param center
-     * @param insWinProp
-     * @param name
-     * @param definitionFunction
-     * @param K
-     * @param accurancy
-     * @param coloringAlgorithm
-     * @param insSetProp
-     * @return 
+     * Return errors that happened when values were inserted
+     * or null if no errors happened.
+     * @param comR red RGB value of main color of the set.
+     * @param comG green RGB value of main color of the set.
+     * @param comB blue RGB value of main color of the set.
+     * @param seR red RGB value of secondary
+     * color of the set.
+     * @param seB blue RGB value of secondary
+     * color of the set.
+     * @param seG green RGB value of secondary
+     * color of the set.
+     * @param bgR red RGB value of background
+     * color of the window.
+     * @param bgG green RGB value of background
+     * color of the window.
+     * @param bgB blue RGB value of background
+     * color of the window.
+     * @param zoom zoom value of the window.
+     * @param heigth height of the window.
+     * @param width width of the window.
+     * @param center complex-number that
+     * is at the center of the window.
+     * @param insWinProp InsertedWindowProperties object that
+     * window properties are inserted.
+     * @param name name of the set.
+     * @param definitionFunction definitionFunction of the set.
+     * @param K K value of the set.
+     * @param accurancy accuracy of the set.
+     * @param coloringAlgorithm Integer that defines coloring algorithm that
+     * is used.
+     * @param insSetProp InsertedSetProperties object that
+     * set properties are inserted.
+     * @return String containing possible errors or null if no errors
+     * were found.
      */
     public String chekProps(int comR,int comG,int comB,int seR,int seG,int seB,int bgR,int bgG,int bgB,
             double zoom,int heigth,int width,String center,InsertedWindowProperties insWinProp,
@@ -43,19 +53,25 @@ public class CheckAndSetProperties {
         this.checkSetProps(name,definitionFunction,K,accurancy,insSetProp);
         this.checkWindowProps(zoom, heigth, width,
                 comR, comG, comB, seR, seG, seB, bgR, bgG, bgB, coloringAlgorithm,center,insWinProp);
-        if(this.errorMessage.equals(" function error\n") || this.errorMessage.equals("K value error\n"))
+        if(this.errorMessage.equals(" function error\n") || this.errorMessage.equals(" K value error\n"))
         {
             return null;
         }
         else
         {
+            if(!(this.errorMessage.contains(" function error\n") && this.errorMessage.contains(" K value error\n")))
+            {
+                this.errorMessage = this.errorMessage.replaceAll(" function error\n","");
+                this.errorMessage = this.errorMessage.replaceAll(" K value error\n","");
+            }
             return this.errorMessage;
         }
     }
     /**
-     * 
-     * @param errorMessage
-     * @param newError 
+     * Adds new error into error message.
+     * @param errorMessage Error message.
+     * @param newError new error that is being
+     * added to the error message.
      */
     private void  erorroMessage(String newError)
     {
@@ -66,12 +82,15 @@ public class CheckAndSetProperties {
         this.errorMessage = this.errorMessage + " " + newError + " error\n";
     }
     /**
-     * 
-     * @param name
-     * @param definitionFunction
-     * @param K
-     * @param accurancy
-     * @param insSetProp
+     * Inserts set related properties into given
+     * InsertedProperties object.
+     * Fills error message with errors that occur.
+     * @param name name of the set.
+     * @param definitionFunction definitionFunction of the set.
+     * @param K K value of the set.
+     * @param accurancy accuracy of the set.
+     * @param insSetProp InsertedSetProperties object that
+     * set properties are inserted.
      */
     private void checkSetProps(String name,String definitionFunction,
             String K,int accurancy,InsertedSetProperties insSetProp)
@@ -94,22 +113,33 @@ public class CheckAndSetProperties {
         }
     }
     /**
-     * 
-     * @param zoom
-     * @param heigth
-     * @param width
-     * @param comR
-     * @param comG
-     * @param comB
-     * @param seR
-     * @param seG
-     * @param seB
-     * @param bgR
-     * @param bgG
-     * @param bgB
-     * @param coloringAlgorithm
-     * @param center
-     * @param insWinProp
+     * Inserts window related properties into
+     * given InsertedWindowProperties object.
+     * Fills error message with errors that occur.
+     * @param zoom zoom value of the window.
+     * @param heigth height of the window.
+     * @param width width of the window.
+     * @param comR red RGB value of main color of the set.
+     * @param comG green RGB value of main color of the set.
+     * @param comB blue RGB value of main color of the set.
+     * @param seR red RGB value of secondary
+     * color of the set.
+     * @param seB blue RGB value of secondary
+     * color of the set.
+     * @param seG green RGB value of secondary
+     * color of the set.
+     * @param bgR red RGB value of background
+     * color of the window.
+     * @param bgG green RGB value of background
+     * color of the window.
+     * @param bgB blue RGB value of background
+     * color of the window.
+     * @param coloringAlgorithm Integer that defines coloring algorithm that
+     * is used.
+     * @param center complex-number that
+     * is at the center of the window.
+     * @param insWinProp InsertedWindowProperties object that
+     * window properties are inserted.
      */
     private void checkWindowProps(double zoom,int heigth,int width,int comR,int comG,int comB,
             int seR,int seG,int seB,int bgR,int bgG,int bgB,int coloringAlgorithm,String center,InsertedWindowProperties insWinProp)

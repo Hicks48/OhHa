@@ -10,7 +10,7 @@ public class Term {
     private int degree;
     private Complex_Number Coefficient;
     /**
-     * 
+     * Creates new Term.
      * @param term String containing information needed to construct term.
      */
     public Term(String term)
@@ -42,7 +42,8 @@ public class Term {
         return withCoefficient;
     }
     /**
-     * @return 
+     * String presentation of the term is form: coefficient * z^degree.
+     * @return Return String presentation of the Term.
      */
     @Override
     public String toString()

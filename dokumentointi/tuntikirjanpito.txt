@@ -8,6 +8,7 @@
 14:00 - 17:45		30.10.2012		Fraktaali ikkunan matematiikan 								touteutusta.
 14:00 - 15:00		31.10.2012		MyMath luokan testien kirjoitusta.
 10:00 - 11:00		1.11.2012		MyMath luokan testien kirjoitusta ja 							MyMath luokan korjaamista.
+10:00 - 12:00		5.11.2012		Ohjelman korjailua ja 
 11:00 - 12_30		10.11.2012		Coloring luokan toteuttamista.
 10:00 - 12:00		12.11.2012		Coloring luokan toteuttamista.
 9:00 - 13:00		13.11.2012		GeneralJulia luokan, sekä siihen liittyvän 						funktion tulkitsemisen toteutusta.

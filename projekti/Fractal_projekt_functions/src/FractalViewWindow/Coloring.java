@@ -20,7 +20,7 @@ public class Coloring {
     private boolean RGBValueCheck;
     private Color backroundColor;
     /**
-     * 
+     * Creates new coloring.
      * @param secondaryMain Color that sets color approaches
      * amount defined by used coloring algorithm.
      * @param setMainColor Color which is used to color pixels whose
@@ -74,9 +74,10 @@ public class Coloring {
     }
     /**
      * Updates colorings values to given values.
-     * @param escape
-     * @param escaped
-     * @param inside 
+     * @param escape tells how many iterations it took
+     * for orbit to escape circle of radius two.
+     * @param escaped First complex-number outside circle.
+     * @param inside Last complex-number inside circle.
      */
     public void updateValues(int escape,Complex_Number escaped,Complex_Number inside)
     {
@@ -89,10 +90,10 @@ public class Coloring {
      * If RGB value check is enabled it checks RGB values before trying to
      * set color. If Setting given RGB values fails it sets color to 
      * background color.
-     * @param red
-     * @param green
-     * @param blue
-     * @param graphics 
+     * @param red Red RGB value.
+     * @param green Green RGB value.
+     * @param blue Blue RGB value.
+     * @param graphics Graphics object thats color is set.
      */
     private void trySetColor(int red,int green,int blue,Graphics graphics)
     {

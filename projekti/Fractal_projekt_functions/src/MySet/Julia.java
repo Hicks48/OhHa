@@ -9,7 +9,7 @@ import MyMath.*;
 public class Julia extends Set{
     private Complex_Number K;
     /**
-     * 
+     * Creates new Julia set.
      * @param K Complex-number constant K.
      * @param name Name of the Julia set.
      * @param accurancy Tells how many iterations complex-planes
@@ -22,7 +22,9 @@ public class Julia extends Set{
         this.K = K;
     }
     /**
-     * 
+     * Checks whether complex-number z belongs to set.
+     * This is done by checking whether z orbit stays
+     * within a circle of radius  two.
      * @param z Complex-number that's orbit is counted.
      * @return Zero if z belongs to set. If z doesn't
      * belong to set method returns how many iterations

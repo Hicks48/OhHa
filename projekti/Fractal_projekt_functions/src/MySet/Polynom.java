@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Polynom {
     private ArrayList<Term> polynom;
     /**
-     * 
+     * Creates new Polynomial.
      * @param polynom String containing information
      * that is used to construct polynomial.
      */
@@ -52,8 +52,10 @@ public class Polynom {
         return value;
     }
     /**
-     * 
-     * @return 
+     * Return String presentation of polynomial.
+     * Presentation is in form: coefficient1 * z^degree1
+     * + coefficient2 * z^degree2 + ... .
+     * @return String presentation of the polynomial.
      */
     @Override
     public String toString()

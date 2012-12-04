@@ -14,7 +14,7 @@ public abstract class Set {
     protected Complex_Number escaped;
     protected Complex_Number inside;
     /**
-     * 
+     * Creates new Set.
      * @param name Name of the set.
      * @param accurancy Tells how many iterations complex-planes
      * points orbit has to stay inside circle of radius two so that

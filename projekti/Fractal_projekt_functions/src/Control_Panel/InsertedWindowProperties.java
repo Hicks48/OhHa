@@ -67,15 +67,15 @@ public class InsertedWindowProperties {
      */
     private boolean checkRGB(int red,int green,int blue)
     {
-        if(red < 0)
+        if(red < 0 || red > 255)
         {
             return false;
         }
-        if(green < 0)
+        if(green < 0 || green > 255)
         {
             return false;
         }
-        if(blue < 0)
+        if(blue < 0 || blue > 255)
         {
             return false;
         }
@@ -93,7 +93,7 @@ public class InsertedWindowProperties {
     }
     /**
      * Initializes all variables with
-     * impossible values.
+     * invalid values.
      */
     public void clear()
     {
@@ -107,7 +107,9 @@ public class InsertedWindowProperties {
     }
     /**
      * Sets RGBValueCheck.
-     * @param RGBValueCheck
+     * @param RGBValueCheck boolean that
+     * tells whether RGBValueCheck is
+     * enabled or not.
      */
     public void setRGBValueCheck(boolean RGBValueCheck)
     {
@@ -123,8 +125,9 @@ public class InsertedWindowProperties {
      */
     public boolean setCenter(String center)
     {
-        Complex_Number toBeChecked = this.contructCenter(center);
-        if(center == null)
+        Complex_Number toBeChecked;
+        toBeChecked = this.contructCenter(center);       
+        if(toBeChecked == null)
         {
             return false;
         }
@@ -132,17 +135,21 @@ public class InsertedWindowProperties {
         return true;
     }
     /**
-     * 
-     * @param coloringAlgorithm 
+     * Sets coloring algorithm
+     * that is used.
+     * @param coloringAlgorithm coloring algorithm
+     * that is set.
      */
     public void setColoringAlgorithm(int coloringAlgorithm)
     {
         this.coloringAlgorithm = coloringAlgorithm;
     }
     /**
-     * 
-     * @param heigth
-     * @return 
+     * Sets height of the window.
+     * @param heigth height of the window
+     * in pixels.
+     * @return true if height is
+     * valid and false if isn't.
      */
     public boolean setHeigth(int heigth)
     {
@@ -154,9 +161,11 @@ public class InsertedWindowProperties {
         return true;
     }
     /**
-     * 
-     * @param width
-     * @return 
+     * Sets width of the window.
+     * @param width width of the screen
+     * in pixels.
+     * @return true if width is valid
+     * and false if isn't.
      */
     public boolean setWidth(int width)
     {
@@ -168,9 +177,10 @@ public class InsertedWindowProperties {
         return true;
     }
     /**
-     * 
-     * @param zoom
-     * @return 
+     * Sets zoom.
+     * @param zoom windows zoom.
+     * @return true if zoom value
+     * is valid and false if isn't.
      */
     public boolean setZoom(double zoom)
     {
@@ -182,11 +192,12 @@ public class InsertedWindowProperties {
         return true;
     }
     /**
-     * 
-     * @param red
-     * @param green
-     * @param blue
-     * @return 
+     * Set main color.
+     * @param red Red RGB value.
+     * @param green Green RGB value.
+     * @param blue Blue RGB value.
+     * @return true if main color values
+     * are valid and false if aren't.
      */
     public boolean setMainColor(int red,int green,int blue)
     {
@@ -198,11 +209,12 @@ public class InsertedWindowProperties {
         return true;
     }
     /**
-     * 
-     * @param red
-     * @param green
-     * @param blue
-     * @return 
+     * Sets secondary color.
+     * @param red Red RGB value.
+     * @param green Green RGB value.
+     * @param blue Blue RGB value.
+     * @return true if secondary color values
+     * are valid and false if aren't.
      */
     public boolean secondaryColor(int red,int green,int blue)
     {
@@ -214,11 +226,12 @@ public class InsertedWindowProperties {
         return true;
     }
     /**
-     * 
-     * @param red
-     * @param green
-     * @param blue
-     * @return 
+     * Sets background color.
+     * @param red Red RGB value.
+     * @param green Green RGB value.
+     * @param blue Blue RGB value.
+     * @return true if background color values
+     * are valid and false if aren't.
      */
     public boolean backroundColor(int red,int green,int blue)
     {
@@ -230,8 +243,9 @@ public class InsertedWindowProperties {
         return true;
     }
     /**
-     * 
-     * @return 
+     * Return String that is used to save
+     * window properties.
+     * @return String that is saved.
      */
     public String save()
     {

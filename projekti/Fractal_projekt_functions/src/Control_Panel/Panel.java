@@ -1,9 +1,10 @@
 
 package Control_Panel;
+
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
-import java.awt.Color;
 import javax.swing.WindowConstants;
 import javax.swing.JButton;
 import javax.swing.ButtonGroup;
@@ -12,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
 import javax.swing.JTextArea;
+import javax.swing.UIManager;
 /**
  * Draws Panel on screen.
  * @author Henri Korpela
@@ -19,12 +21,20 @@ import javax.swing.JTextArea;
 public class Panel implements Runnable{
     private JFrame panel;
     /**
-     * 
+     * Runs panel and sets it visible.
      */
     @Override
     public void run()
     {
         this.panel = new JFrame("Control Panel");
+        try 
+        {
+                UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
         this.panel.setPreferredSize(new Dimension(1400,350));
         this.panel.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.createComponents(this.panel.getContentPane());
@@ -33,7 +43,7 @@ public class Panel implements Runnable{
     }
     /**
      * Fills frames container with different components.
-     * @param container 
+     * @param container Container that is filled with panels components. 
      */
     private void createComponents(Container container)
     {
@@ -113,11 +123,11 @@ public class Panel implements Runnable{
         container.add(new JLabel(""));
         container.add(list);
         
-        container.add(new JLabel(" Red: "));
+        container.add(new JLabel("          Red: "));
         container.add(comR);
-        container.add(new JLabel("Red: "));
+        container.add(new JLabel("          Red: "));
         container.add(seR);
-        container.add(new JLabel("Red: "));
+        container.add(new JLabel("          Red: "));
         container.add(bgR);
         container.add(escapes);
         container.add(new JLabel("Zoom: "));
@@ -126,11 +136,11 @@ public class Panel implements Runnable{
         container.add(name);
         container.add(load);
         
-        container.add(new JLabel(" Green: "));
+        container.add(new JLabel("          Green: "));
         container.add(comG);
-        container.add(new JLabel("Green: "));
+        container.add(new JLabel("          Green: "));
         container.add(seG);
-        container.add(new JLabel("Green: "));
+        container.add(new JLabel("          Green: "));
         container.add(bgG);
         container.add(cos);
         container.add(new JLabel("Width: "));
@@ -139,11 +149,11 @@ public class Panel implements Runnable{
         container.add(KValue);
         container.add(save);
         
-        container.add(new JLabel(" Blue: "));
+        container.add(new JLabel("          Blue: "));
         container.add(comB);
-        container.add(new JLabel("Blue: "));
+        container.add(new JLabel("          Blue: "));
         container.add(seB);
-        container.add(new JLabel("Blue: "));
+        container.add(new JLabel("          Blue: "));
         container.add(bgB);
         container.add(sin);
         container.add(new JLabel("Heigth: "));

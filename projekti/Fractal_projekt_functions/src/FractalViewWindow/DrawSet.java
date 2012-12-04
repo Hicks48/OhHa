@@ -19,7 +19,7 @@ public class DrawSet extends JPanel{
     private double zoom;
     private Coloring coloring;
     /**
-     * 
+     * Creates new DrawSet.
      * @param setMainColor Color which is used to color pixels whose
      * complex-number belongs to set.
      * @param backround Color which is used to color pixels whose

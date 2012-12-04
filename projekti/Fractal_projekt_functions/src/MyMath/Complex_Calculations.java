@@ -85,7 +85,7 @@ public class Complex_Calculations {
     /**
      * Simplifies any complex-number into a form (a+bi).
      * @param num Complex_number that is simplified.
-     * @return simplified complex-number
+     * @return simplified complex-number.
      */
     public static Complex_Number simplify_i(Complex_Number num)
     {
@@ -159,7 +159,7 @@ public class Complex_Calculations {
      * Takes conjugation of complex-number by multiplying complex part
      * bi by (-1).
      * @param num Complex-number thats conjugation is formed.
-     * @return 
+     * @return cojnugation of complex-number num.
      */
     private static Complex_Number conjugation(Complex_Number num)
     {

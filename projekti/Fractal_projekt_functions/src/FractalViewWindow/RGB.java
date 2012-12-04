@@ -11,9 +11,9 @@ public class RGB {
     private final int blue;
     /**
      * Creates RGB and sets it's values.
-     * @param red
-     * @param green
-     * @param blue 
+     * @param red Red RGB value.
+     * @param green Green RGB value.
+     * @param blue Blue RGB value.
      */
     public RGB(int red,int green,int blue)
     {

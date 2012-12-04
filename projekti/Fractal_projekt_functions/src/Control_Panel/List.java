@@ -65,7 +65,7 @@ public class List implements Runnable,ActionListener{
     }
     /**
      * Starts when List button is clicked.
-     * @param e 
+     * @param e Event that occurs when list button is clicked.
      */
     @Override
     public void actionPerformed(ActionEvent e) {

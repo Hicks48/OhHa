@@ -12,7 +12,7 @@ public class DefinitionFunction {
     private final Polynom dividend;
     private final Polynom divisor;
     /**
-     * 
+     * Creates new DefinitionFunction.
      * @param function String containing information needed
      * to construct definition function (P(x) and Q(x)).
      */
@@ -35,8 +35,9 @@ public class DefinitionFunction {
                 this.divisor.countValue(z));
     }
     /**
-     * 
-     * @return 
+     * Return Definitionfunctions String presentation.
+     * Presentation is form: P(x) / Q(x).
+     * @return String presentation of definitionFunction.
      */
     @Override
     public String toString()
