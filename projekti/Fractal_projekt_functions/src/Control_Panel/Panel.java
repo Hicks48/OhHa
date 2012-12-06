@@ -114,7 +114,7 @@ public class Panel implements Runnable{
         container.add(new JLabel(""));
         container.add(new JLabel("Secondary color:"));
         container.add(new JLabel(""));
-        container.add(new JLabel("Backround color:"));
+        container.add(new JLabel("Background color:"));
         container.add(new JLabel(""));
         container.add(new JLabel("Coloring:"));
         container.add(new JLabel("Window:"));
@@ -130,9 +130,9 @@ public class Panel implements Runnable{
         container.add(new JLabel("          Red: "));
         container.add(bgR);
         container.add(escapes);
-        container.add(new JLabel("Zoom: "));
+        container.add(new JLabel("  Zoom: "));
         container.add(zoom);
-        container.add(new JLabel("name: "));
+        container.add(new JLabel("  name: "));
         container.add(name);
         container.add(load);
         
@@ -143,9 +143,9 @@ public class Panel implements Runnable{
         container.add(new JLabel("          Green: "));
         container.add(bgG);
         container.add(cos);
-        container.add(new JLabel("Width: "));
+        container.add(new JLabel("  Width: "));
         container.add(width);
-        container.add(new JLabel("K value: "));
+        container.add(new JLabel("  K value: "));
         container.add(KValue);
         container.add(save);
         
@@ -156,9 +156,9 @@ public class Panel implements Runnable{
         container.add(new JLabel("          Blue: "));
         container.add(bgB);
         container.add(sin);
-        container.add(new JLabel("Heigth: "));
+        container.add(new JLabel("  Heigth: "));
         container.add(heigth);
-        container.add(new JLabel("Function: "));
+        container.add(new JLabel("  Function: "));
         container.add(function);
         container.add(draw);
         
@@ -169,9 +169,9 @@ public class Panel implements Runnable{
         container.add(new JLabel(""));
         container.add(new JLabel(""));
         container.add(RGBValueCheck);
-        container.add(new JLabel("center: "));
+        container.add(new JLabel("  center: "));
         container.add(center);
-        container.add(new JLabel("accurancy: "));
+        container.add(new JLabel("  accuracy: "));
         container.add(accurancy);
         container.add(delete);
     }

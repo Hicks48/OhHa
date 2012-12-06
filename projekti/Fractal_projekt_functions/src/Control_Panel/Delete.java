@@ -41,6 +41,7 @@ public class Delete implements ActionListener{
             if(lines.equals("Nothing was deleted."))
             {
                 this.errors.setText(lines);
+                return;
             }
             FileWriter writer = new FileWriter("SavedSets.txt");
             writer.write(lines);

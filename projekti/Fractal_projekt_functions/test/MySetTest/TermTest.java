@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MySetTest;
 
 import MySet.Term;
@@ -14,8 +11,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author henrikorpela
+ * Test function of term class.
+ * @author Henri Korpela
  */
 public class TermTest {
     private Term test1;
@@ -44,7 +41,9 @@ public class TermTest {
     @After
     public void tearDown() {
     }
-    
+    /**
+     * Tests countValue method.
+     */
     @Test
     public void countValue()
     {
@@ -61,7 +60,9 @@ public class TermTest {
         assertEquals(new Complex_Number(0.01137439054,-0.04351592534),this.test4.countValue(new Complex_Number(-0.001,+0.2)));
         assertEquals(new Complex_Number(9.67272306,+2.37389174),this.test4.countValue(new Complex_Number(1.21,0)));
     }
-    
+    /**
+     * Tests to String method.
+     */
     @Test
     public void toStringTest() 
     {

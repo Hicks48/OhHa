@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MyMathTest;
 
 import MyMath.Complex_Calculations;
@@ -15,7 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author henrikorpela
+ * @author Henri Korpela
  */
 public class Complex_Calculations_Test {
     private Complex_Number test1;

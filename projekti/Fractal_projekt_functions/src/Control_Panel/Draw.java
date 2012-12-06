@@ -1,5 +1,6 @@
 
 package Control_Panel;
+import FractalViewWindow.DrawSet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import FractalViewWindow.Window;

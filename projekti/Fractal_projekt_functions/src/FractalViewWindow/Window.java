@@ -47,6 +47,14 @@ public class Window implements Runnable{
                 secondaryMain,coloringAlgorithm,RGBValueCheck);
     }
     /**
+     * Return DrawSet of this window.
+     * @return DrawSet of this window.
+     */
+    public DrawSet isReady()
+    {
+        return this.drawSet;
+    }
+    /**
      * Return this windows JFrame.
      * @return this JFrame.
      */

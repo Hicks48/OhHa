@@ -84,6 +84,16 @@ public class Save implements ActionListener{
         }
         return lines;
     }
+    private boolean checkName()
+    {
+        String name = this.name.getText();
+        if(name.contains("#") || name.contains(":") || name.contains("&") ||
+                name.contains(";") || name.contains("/"))
+        {
+            return false;
+        }
+        return true;
+    }
     /**
      * Starts when save button is clicked.
      * Saves current values on the screens informations fields.
@@ -93,6 +103,11 @@ public class Save implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(!this.checkName())
+        {
+            this.errors.setText("invalid name");
+            return;
+        }
         this.setProps.clear();
         this.winProps.clear();
         String errors = null;
@@ -103,6 +118,7 @@ public class Save implements ActionListener{
         catch(Exception thisException1)
         {
             this.errors.setText("Incorrect Input");
+            return;
         }
         if(errors == null)
         {
@@ -125,6 +141,7 @@ public class Save implements ActionListener{
             catch(Exception thisException)
             {
                 this.errors.setText("Error: No file found.");
+                return;
             }
         }
         else

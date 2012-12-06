@@ -1,10 +1,5 @@
 package MyMathTest;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,7 +9,7 @@ import static org.junit.Assert.*;
 import MyMath.Complex_Number;
 /**
  *
- * @author henrikorpela
+ * @author Henri Korpela
  */
 public class Complex_Number_Test {
     

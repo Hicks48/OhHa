@@ -1,8 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MySetTest;
+
 import MySet.Polynom;
 import MyMath.Complex_Number;
 import org.junit.After;
@@ -14,7 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author henrikorpela
+ * @author Henri Korpela
  */
 public class PolynomTest {
     private Polynom test1;

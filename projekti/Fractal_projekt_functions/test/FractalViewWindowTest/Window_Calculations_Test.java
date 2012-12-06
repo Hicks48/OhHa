@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package FractalViewWindowTest;
 
 import org.junit.After;
@@ -14,7 +11,7 @@ import FractalViewWindow.Window_Calculations;
 import MyMath.Complex_Number;
 /**
  *
- * @author henrikorpela
+ * @author Henri Korpela
  */
 public class Window_Calculations_Test {
     public Window_Calculations_Test() {

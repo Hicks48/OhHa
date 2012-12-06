@@ -105,7 +105,7 @@ public class CheckAndSetProperties {
         }
         if(!insSetProp.setAccurancy(accurancy))
         {
-            this.erorroMessage("accurancy");
+            this.erorroMessage("accuracy");
         }
         if(!insSetProp.setK(K))
         {
@@ -154,7 +154,7 @@ public class CheckAndSetProperties {
         }
         if(!insWinProp.backroundColor(bgR,bgG,bgB))
         {
-            this.erorroMessage("backround color");
+            this.erorroMessage("background color");
         }
         if(!insWinProp.setWidth(width))
         {

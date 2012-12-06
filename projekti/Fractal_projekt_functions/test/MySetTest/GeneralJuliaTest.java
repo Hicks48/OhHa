@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MySetTest;
 
 import MySet.GeneralJulia;
@@ -17,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author henrikorpela
+ * @author Henri Korpela
  */
 public class GeneralJuliaTest {
     private Random generator;
@@ -57,7 +54,7 @@ public class GeneralJuliaTest {
     }
     
     @Test
-    public void hazardTest()
+    public void ComparisonTest()
     {
         Complex_Number z = new Complex_Number(0.13007431616127063,+0.9015645527639827);
         assertEquals(julia.belongsToSet(z),this.generalJulia.belongsToSet(z));

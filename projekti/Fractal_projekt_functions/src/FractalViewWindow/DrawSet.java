@@ -18,6 +18,7 @@ public class DrawSet extends JPanel{
     private Complex_Number center;
     private double zoom;
     private Coloring coloring;
+    private boolean ready;
     /**
      * Creates new DrawSet.
      * @param setMainColor Color which is used to color pixels whose
@@ -46,6 +47,7 @@ public class DrawSet extends JPanel{
         this.width = width;
         this.center = center;
         this.zoom = zoom;
+        this.ready = false;
         this.coloring = new Coloring(secondaryMain,setMainColor,coloringAlgorithm,
                 set.getAccurancy(),backroundColor,RGBValueCheck);
     }
@@ -95,5 +97,15 @@ public class DrawSet extends JPanel{
                 }
             }
         }
+        this.ready = true;
+    }
+    /**
+     * Tells whether drawing of the set
+     * is done or not.
+     * @return true if drawing is done and false if isn't.
+     */
+    public boolean getReady()
+    {
+        return this.ready;
     }
 }
